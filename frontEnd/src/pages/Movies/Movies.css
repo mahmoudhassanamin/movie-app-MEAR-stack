@@ -1,0 +1,13 @@
+.contain{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.paginationPosition{
+    margin: auto;
+}
+
+.width{
+    width: 20%;
+}

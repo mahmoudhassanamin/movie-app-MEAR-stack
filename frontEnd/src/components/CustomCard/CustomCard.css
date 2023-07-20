@@ -1,0 +1,58 @@
+.card {
+    width: 20% !important;
+    box-sizing: border-box;
+    margin:2% 0 2% 4%;
+    height: 40vw;
+    
+}
+.cardText{
+    overflow-y: auto ;
+    scrollbar-color: red orange;
+}
+
+.addToFavorite{
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    border-radius: 50%;
+    background-color: aliceblue;
+    width: 15%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.addToFavorite:hover{
+    cursor: pointer;
+    animation-name: addToFavorite;
+    animation-duration: 0.5s;
+    animation-timing-function:ease;
+    animation-iteration-count: infinite;
+}
+.addToFavorite2:hover{
+    cursor: pointer;
+    animation-name: addToFavorite2;
+    animation-duration: 0.5s;
+    animation-timing-function:ease;
+}
+
+@keyframes addToFavorite{
+    0%{
+        outline: 1px solid  rgb(225, 91, 91);   
+    }
+    40%{
+        outline: 2px solid rgb(216, 91, 91);
+    }
+    90%{
+        outline: 3px solid rgb(222, 11, 11);
+    }
+}
+@keyframes addToFavorite2{
+    0%{
+        
+        transform: rotate(0deg);
+        
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
