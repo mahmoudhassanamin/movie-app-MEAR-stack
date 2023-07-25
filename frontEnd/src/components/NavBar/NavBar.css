@@ -5,7 +5,21 @@
     width: 100%;
     font-size: 1.2vw;
 }
+
+.nav{
+    z-index: 2;
+    position:sticky;
+    top:0;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    height: 5vh;
+    padding: 2% 0;
+}
 .homeIcon{
-    width: 3vw;
+    width: 100%;
     height: auto;
+    display: inline-block;
+}
+.homeLink{
+    width: 6%;
+    
 }

@@ -15,7 +15,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Cookies from 'js-cookie';
 import logged from './store/actions/logged';
-
+import Footer from './components/Footer/Footer';
 function App() {
   const dispatch = useDispatch()
   useEffect(()=>{
@@ -23,7 +23,7 @@ function App() {
       dispatch(logged("Auth"))
   },[])
   return (
-    <BrowserRouter>
+    <BrowserRouter className="route">
       <NavBar/>
       <Routes>
         <Route path='/' element={<Home/>}/>
@@ -35,6 +35,7 @@ function App() {
         <Route path='/movies/:id' element={<Movie/>}/>
         <Route path='*' element={<ErrorPage/>}/>
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }

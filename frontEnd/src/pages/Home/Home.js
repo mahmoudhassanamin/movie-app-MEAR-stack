@@ -6,7 +6,7 @@ function Home() {
     let currentLetter = 1;
     let intervalRef;
     const [welcome,setWelcome]=useState("");
-    let homeWelcomeWord="Welcome";
+    let homeWelcomeWord="Welcome ";
     useEffect(()=>{
         intervalRef=setInterval(()=>{
             if(currentLetter > homeWelcomeWord.length){
@@ -26,9 +26,10 @@ function Home() {
     <>
     <div className="vidoe">
       <video  autoPlay muted loop src={"https://cdn.pixabay.com/vimeo/689949818/sunset-111204.mp4?width=960&hash=1671fb736830d8990da2b453fd48b949ce826da5"} />
-        <div className="cover d-flex justify-content-center  align-items-center">
-            {welcome}
+        <div className="cover d-flex p-5  ">
+            <p className="m-5">{welcome}</p>
         </div>
+      
     </div>
     </>
   )

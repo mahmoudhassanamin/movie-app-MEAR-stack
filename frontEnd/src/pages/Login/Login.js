@@ -8,7 +8,7 @@ import jwtDecode from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import logged from '../../store/actions/logged';
-import { favoriteMovies } from '../../store/actions/favoriteMovies';
+import { addFavoriteMovies } from '../../store/actions/addFavoriteMovies';
 function Login() {
   const [userData, setUserData] = useState({ email: null, password: null })
   const [userDataErr, setUserDataErr] = useState({ emailErr: "", passwordErr: "" })
@@ -50,7 +50,7 @@ function Login() {
       })
       .then(res=>{
         console.log(res.data)
-        res.data.forEach(movie=>dispatch(favoriteMovies({movieId:movie._id,original_title:movie.cardTitle,overview:movie.overview,poster_path:movie.poster_path})))
+        res.data.forEach(movie=>dispatch(addFavoriteMovies({movieId:movie._id.movieId,original_title:movie.cardTitle,overview:movie.overview,poster_path:movie.poster_path})))
       })
       .catch(err => {
         const { error } = err?.response.data

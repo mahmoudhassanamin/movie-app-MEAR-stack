@@ -9,6 +9,7 @@
 .cardText{
     
     position: absolute;
+    top:0;
     color: white;
     width: 100%;
     height: 100%;
@@ -60,23 +61,33 @@
     background-color: rgba(0, 0, 0, 0.491);
     animation-name: showCardText;
     animation-duration: 1s;
-    animation-timing-function:ease-in
+    animation-timing-function:ease;
+    overflow:hidden !important;
 }
 
-@keyframes showCardText{
+/* @keyframes showCardText{
     0%{
-        transform: rotateX(0deg);
+        transform: rotateY(0deg);
         
     }
     50%{
-        transform: rotateX(90deg);
+        transform: rotateY(90deg);
     }
     100%{
-        transform: rotateX(180deg);
+        transform: rotateY(180deg);
         overflow-y: auto ;
     }
-}
+} */
 
+@keyframes showCardText{
+    0%{
+        height: 0%;
+    }
+    100%{
+        height: 100%;
+        overflow-y: auto;
+    }
+}
 @keyframes addToFavorite{
     0%{
         outline: 1px solid  rgb(225, 91, 91);   

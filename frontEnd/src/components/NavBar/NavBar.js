@@ -29,11 +29,12 @@ function NavBar() {
   // },[userStatus])
   return (
     <>
-      <Navbar bg="danger" data-bs-theme="dark" style={{zIndex:1,position:"sticky",top:0}}>
+      <Navbar bg="danger" data-bs-theme="dark" className='nav'>
         <Container>
-          <Navbar.Brand><Link className='nav-link' to="/"><img src={imgage} className='homeIcon'/></Link></Navbar.Brand>
+          <Navbar.Brand className=' homeLink'><Link className='nav-link' to="/">  <img src={imgage} className='homeIcon'/></Link></Navbar.Brand>
           <Nav className="me-auto rightLinks">
             <div className='d-flex'>
+            <Nav.Link ><Link className='nav-link' to="/">HOME</Link></Nav.Link>
             <Nav.Link ><Link className='nav-link' to="/movies"   onClick={getAllMovies}>Movies</Link></Nav.Link>
             
             {userStatus === "Auth" && <Nav.Link><Link className='nav-link' to="/favorites">Favorites</Link></Nav.Link>}
