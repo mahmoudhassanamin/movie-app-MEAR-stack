@@ -92,7 +92,7 @@ function Movies() {
         <div className="contain">
             {
                 movieList.length !== 0 ? movieList.map(movie => {
-                    return <CustomCard onclick={() => getMovieById(movie.id)} isFavorite={favoriteMovies.get(movie.id)} key={movie.id} movieId={movie.id}  cardTitle={movie.original_title} overview={movie.overview} poster_path={movie.poster_path} />
+                    return <CustomCard onclick={() => getMovieById(movie.id)} isFavorite={favoriteMovies.get(movie.id)?true:false} key={movie.id} movieId={movie.id}  cardTitle={movie.original_title} overview={movie.overview} poster_path={movie.poster_path} />
                 }) : <Spinner />
             }
             

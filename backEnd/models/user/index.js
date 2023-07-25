@@ -22,7 +22,11 @@ const userSchema = new mongoose.Schema({
     password:{
         type:String,
         minLength:8,
-    }
+    },
+    confirmed:{
+        type:Boolean,
+        default:false
+    },
 },{
     timestamps:true
 }
@@ -37,9 +41,10 @@ userSchema.pre("save",async function (next){
        next("password hashing error");
     }
 })
-
+userSchema.methods.validatePassword=function (password){
+    return argon2.verify(this.password,password);
+}
+userSchema.methods.isConfirmed = function () {return this.confirmed} 
 const userModel = mongoose.model("movieAppUsers",userSchema)
-
-
 
 module.exports = userModel

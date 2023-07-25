@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import CustomCard from '../../components/CustomCard/CustomCard'
+
 let favoriteMovies
 function Favorites() {
   let [favoriteMoviesList,setFavoriteMoviesList]=useState([])
@@ -9,21 +10,20 @@ function Favorites() {
   let size = useSelector(state=>state.favoriteMovies.size)
 
   useEffect(()=>{
-    console.log("11")
     let tempMovieList=[]
     
     favoriteMovies.forEach((movieData,movieId)=>{
-      tempMovieList.push(<CustomCard onclick={() => movieData.onclick(movieId)} key={movieId} movieId={movieId}  cardTitle={movieData.original_title} overview={movieData.overview} poster_path={movieData.poster_path} />)
+      tempMovieList.push(<CustomCard  key={movieId} movieId={movieId}  cardTitle={movieData.original_title} overview={movieData.overview} poster_path={movieData.poster_path} />)
     })
     setFavoriteMoviesList([...tempMovieList])
-    // console.log(favoriteMoviesList)
+    
     
   },[])
   useEffect(()=>{
     let tempMovieList=[]
     
     favoriteMovies.forEach((movieData,movieId)=>{
-      tempMovieList.push(<CustomCard onclick={() => movieData.onclick(movieId)} key={movieId} movieId={movieId} isFavorite={true}  cardTitle={movieData.original_title} overview={movieData.overview} poster_path={movieData.poster_path} />)
+      tempMovieList.push(<CustomCard  key={movieId} movieId={movieId} isFavorite={true}  cardTitle={movieData.original_title} overview={movieData.overview} poster_path={movieData.poster_path} />)
     })
     setFavoriteMoviesList([...tempMovieList])
   },[size])

@@ -2,16 +2,19 @@ import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import "./Register.css"
+import {backEndInstance} from '../../network/backEnd';
+import { useNavigate } from 'react-router-dom';
+
 function Register() {
 
     const [registerData, setRegisterData] = useState({
-        fullName: "", email: "", username: "", password: "", confirmPassword: ""
+        fullName: "", email: "", userName: "", password: "", confirmPassword: ""
     })
     const [registerDataErr, setRegisterDataErr] = useState({
         fullNameErr: "", emailErr: "", usernameErr: "", passwordErr: "", confirmPasswordErr: ""
     })
     const emailRegex = new RegExp(/^\S+@\S+\.\S+$/,"g");
-    const [valid,setValid]=useState(false)
+    const navigate = useNavigate()
     const changeRegisterData = (e) => {
         console.log(registerData)
         switch (e.target.name) {
@@ -24,7 +27,7 @@ function Register() {
                 setRegisterDataErr({...registerDataErr,emailErr:e.target.value.length === 0 ?"field is require":!emailRegex.test(e.target.value)?"invalid email ex:mahmoud@gmail.com":null})
                 break
             case "username":
-                setRegisterData({ ...registerData, username: e.target.value });
+                setRegisterData({ ...registerData, userName: e.target.value });
                 setRegisterDataErr({...registerDataErr,usernameErr:!/^[a-zA-z0-9]+$/g.test(e.target.value)?"only small and capital and numbers allowed":e.target.value.length <8?"minimum length is 8":null})
                 break
             case "password":
@@ -46,7 +49,27 @@ function Register() {
     }
     const submitHandler=(e)=>{
         e.preventDefault()
-        console.log(e);
+        backEndInstance.post("/user/register",registerData)
+        .then(res=>{
+            navigate("/askForConfirm")
+        })
+        .catch(err=>{
+             const {error} = err?.response.data
+             if(error === "email must be unique"){
+                setRegisterDataErr({...registerDataErr,emailErr:"email is used from another user"})
+             }
+             else if(error === "password and confirm password is not equivalent"){
+                setRegisterDataErr({...registerDataErr,confirmPasswordErr:"password not equal confirm password"})
+             }
+             else if(error === "internal server error"){
+                // because the confirmPasswordErr is the last input of the form so the error appears at the bottom
+                setRegisterDataErr({...registerDataErr,confirmPasswordErr:"the server has an error please try later"})
+             }
+             else if(error === "invalid inputs"){
+                // because the confirmPasswordErr is the last input of the form so the error appears at the bottom
+                setRegisterDataErr({...registerDataErr,confirmPasswordErr:"please enter valid values"})
+             }
+        })
       }
     return (
         <Form onSubmit={submitHandler} className='container p-5 width'>

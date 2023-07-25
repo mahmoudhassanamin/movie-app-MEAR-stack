@@ -1,0 +1,10 @@
+.confirm{
+    width: fit-content;
+    padding:3% 10% ;
+    background-color: #0000003b;
+    border:1px #dc3545 solid;
+    border-radius: 10px;
+    color: white;
+    margin:5% auto;
+    text-align: center;
+}

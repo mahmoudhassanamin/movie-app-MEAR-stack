@@ -10,6 +10,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("./assets/wallpaperflare.com_wallpaper.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-attachment: fixed;
 }
 
 code {

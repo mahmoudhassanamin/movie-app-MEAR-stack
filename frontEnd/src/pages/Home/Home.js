@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import "./Home.css"
-import videoBg from "./video.mp4"
+
 import { useLocation } from "react-router-dom"
 function Home() {
     let currentLetter = 1;
@@ -25,7 +25,7 @@ function Home() {
   return (
     <>
     <div className="vidoe">
-      <video  autoPlay muted loop src={"https://player.vimeo.com/external/410111061.sd.mp4?s=519996bfe2e6393e3adac2a616aed3545e9da13b&profile_id=164&oauth2_token_id=57447761"} />
+      <video  autoPlay muted loop src={"https://cdn.pixabay.com/vimeo/689949818/sunset-111204.mp4?width=960&hash=1671fb736830d8990da2b453fd48b949ce826da5"} />
         <div className="cover d-flex justify-content-center  align-items-center">
             {welcome}
         </div>

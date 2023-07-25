@@ -10,8 +10,18 @@ import Favorites from './pages/Favorites/Favorites';
 import Movies from './pages/Movies/Movies';
 import Movie from './pages/Movie/Movie';
 import Home from './pages/Home/Home';
+import AskForConfirm from './pages/AskForConfirm/AskForConfirm';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import Cookies from 'js-cookie';
+import logged from './store/actions/logged';
 
 function App() {
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    if(Cookies.get("Authorization"))
+      dispatch(logged("Auth"))
+  },[])
   return (
     <BrowserRouter>
       <NavBar/>
@@ -21,6 +31,7 @@ function App() {
         <Route path='/register' element={<Register/>}/>
         <Route path='/favorites' element={<Favorites/>}/>
         <Route path='/movies' element={<Movies/>}/>
+        <Route path='/askForConfirm' element={<AskForConfirm/>}/>
         <Route path='/movies/:id' element={<Movie/>}/>
         <Route path='*' element={<ErrorPage/>}/>
       </Routes>

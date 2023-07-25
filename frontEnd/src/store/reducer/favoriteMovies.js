@@ -21,6 +21,12 @@ function favoriteMovies(state=INITIAL_VALUE,action) {
                     ...state,favorites:state.favorites.set(movieId,movieData),size:state.favorites.size
                 }
             }
+            case "CLEAR_FAVORITES":
+                return{
+                    ...state,
+                    favorites:new Map(),
+                    size:0
+                }
             default:
                 return state
     }

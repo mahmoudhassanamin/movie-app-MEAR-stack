@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 
 module.exports =()=>{
-    return mongoose.connect(process.env.CONNECTIONsTRING)
+    return mongoose.connect(process.env.CONNECTION_STRING)
     .then(()=>{
         console.log("Database connection is success")
     })
@@ -10,4 +10,4 @@ module.exports =()=>{
         console.log("server closed")
         process.exit(1);
     })
-} 
+}

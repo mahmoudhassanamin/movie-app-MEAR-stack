@@ -17,7 +17,7 @@ function Movie() {
     },[])
   return (
     <div>
-     <CustomCard movieId={movieData.id} isFavorite={favoriteMovies.get(movieData.id)} cardTitle={movieData.original_title} overview={movieData.overview} poster_path={movieData.poster_path} />
+     <CustomCard movieId={movieData.id} isFavorite={favoriteMovies.get(movieData.id)?true:false} cardTitle={movieData.original_title} overview={movieData.overview} poster_path={movieData.poster_path} />
     </div>
   )
 }

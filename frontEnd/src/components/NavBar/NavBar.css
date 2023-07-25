@@ -1,0 +1,11 @@
+.rightLinks{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 1.2vw;
+}
+.homeIcon{
+    width: 3vw;
+    height: auto;
+}
