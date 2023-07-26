@@ -1,24 +1,59 @@
-.vidoe{
-    position: relative;
-    top:0;
-    width: 100%;
-    height: fit-content;
-    min-height: 100vh;
-}
+
 video{
     width: 100%;
-    height: 50vh;
+    height: 70vh;
     object-fit: cover;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 90%,0% 100%);
+    clip-path: polygon(  0% 0%,100% 0%,
+    100% 80%,95% 100%,
+    90% 100%,85% 80%,
+    80% 80%,75% 100%,
+    70% 100%,65% 80%,
+    0% 80%);
 }
 
 .cover{
     position: absolute;
-    top:0;
+    top:0; 
     width: 100%;
-    height: 50vh;
+    height: 70vh;
+    padding: 2vw;
     background-color: rgba(0, 0, 0, 0.521);
     color: white;
-    font-size: x-large;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 90%,0% 100%);
+    
+    clip-path: polygon(  0% 0%,100% 0%,
+                        100% 80%,95% 100%,
+                        90% 100%,85% 80%,
+                        80% 80%,75% 100%,
+                        70% 100%,65% 80%,
+                        0% 80%);
+}
+
+.sliderContainer{
+    display: flex;
+    position: relative;
+    top: -16vh;
+    width: 100%;
+    height: 70vh;
+ 
+    justify-content: start;
+    align-items: center;
+   
+    
+}
+.sliderImg{
+    width: 40vw;
+    height: auto;
+    margin: 1vw;
+}
+.sliderController{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    padding: 1.5vw;
+    margin:0 3vw ;
+    background-color:#dc35460d;
+
 }

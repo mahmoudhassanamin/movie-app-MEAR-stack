@@ -65,6 +65,10 @@ function Register() {
                 // because the confirmPasswordErr is the last input of the form so the error appears at the bottom
                 setRegisterDataErr({...registerDataErr,confirmPasswordErr:"the server has an error please try later"})
              }
+             else if(error === "username must be unique"){
+                // because the confirmPasswordErr is the last input of the form so the error appears at the bottom
+                setRegisterDataErr({...registerDataErr,usernameErr:"username is used from another user"})
+             }
              else if(error === "invalid inputs"){
                 // because the confirmPasswordErr is the last input of the form so the error appears at the bottom
                 setRegisterDataErr({...registerDataErr,confirmPasswordErr:"please enter valid values"})
@@ -72,13 +76,17 @@ function Register() {
         })
       }
     return (
-        <Form onSubmit={submitHandler} className='container p-5 width'>
-            <Form.Group className="mb-3" controlId="formBasicFullName">
-                <Form.Label>Full Name</Form.Label>
-                <Form.Control type="text" placeholder="Enter your Full name" name="fullName" onBlur={(e)=>changeRegisterData(e)} />
+        <Form onSubmit={submitHandler} className='p-5 width d-flex flex-column rounded-4'>
+
+            <Form.Group className="mb-3 " controlId="formBasicFullName">
+
+                <Form.Label >Full Name</Form.Label>
+
+                <Form.Control  type="text" placeholder="Enter your Full name" name="fullName" onBlur={(e)=>changeRegisterData(e)} />
                 <div className='text-danger'>
                     {registerDataErr.fullNameErr}
                 </div>
+               
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email</Form.Label>
@@ -95,14 +103,14 @@ function Register() {
                 </div>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Group className="mb-3 " controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" placeholder="Password" name="password" onBlur={changeRegisterData} />
                 <pre className='text-danger'>
                     {registerDataErr.passwordErr}
                 </pre>
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
+            <Form.Group className="mb-3 " controlId="formBasicConfirmPassword">
                 <Form.Label>Confirm Password</Form.Label>
                 <Form.Control type="password" placeholder="Password" name="confirmPassword" onBlur={changeRegisterData} />
                 <div className='text-danger'>

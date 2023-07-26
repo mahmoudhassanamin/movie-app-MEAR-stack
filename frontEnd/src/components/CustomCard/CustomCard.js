@@ -22,10 +22,13 @@ function CustomCard({ movieId,cardTitle, overview, poster_path ,isFavorite ,show
      * 
      * 
      */
+    console.log(cardTitle)
     e.stopPropagation();
     backEndInstance.post("/movies/addRemoveFavorites",{movieId,cardTitle, overview, poster_path})
     .then(res=>{
       setError(false)
+      
+
     if(e.target.src === "https://cdn-icons-png.flaticon.com/128/4034/4034436.png") { 
       isFavorite = true;
       e.target.src ="https://cdn-icons-png.flaticon.com/512/3935/3935793.png"}
@@ -64,7 +67,7 @@ function CustomCard({ movieId,cardTitle, overview, poster_path ,isFavorite ,show
       {error && <p className='text-danger'>try again leter</p>}
       {userStatus==="Auth" &&<img className='addToFavorite' key = {movieId} src={isFavorite?"https://cdn-icons-png.flaticon.com/512/3935/3935793.png":"https://cdn-icons-png.flaticon.com/128/4034/4034436.png"} onClick={e=>addAndRemoveFavorites(e,movieId)}/>}
       
-        <Card.Img variant="top" alt = "error" src={`https://image.tmdb.org/t/p/w500/${poster_path}`} />
+        <Card.Img variant="top" alt = "failed to fetch the image" src={`https://image.tmdb.org/t/p/w500/${poster_path}`} />
       
         <Card.Title  className='cardTitle'>{cardTitle}</Card.Title>
         {showOverview && 

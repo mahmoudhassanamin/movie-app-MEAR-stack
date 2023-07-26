@@ -13,7 +13,8 @@ function Favorites() {
     let tempMovieList=[]
     
     favoriteMovies.forEach((movieData,movieId)=>{
-      tempMovieList.push(<CustomCard  key={movieId} movieId={movieId}  cardTitle={movieData.original_title} overview={movieData.overview} poster_path={movieData.poster_path} />)
+      console.log(movieData.movieId)
+      tempMovieList.push(<CustomCard  key={movieId} movieId={movieData.movieId} cardTitle={movieData.original_title} overview={movieData.overview} poster_path={movieData.poster_path} />)
     })
     setFavoriteMoviesList([...tempMovieList])
     

@@ -9,6 +9,10 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import logged from '../../store/actions/logged';
 import { addFavoriteMovies } from '../../store/actions/addFavoriteMovies';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye,faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+
+
 function Login() {
   const [userData, setUserData] = useState({ email: null, password: null })
   const [userDataErr, setUserDataErr] = useState({ emailErr: "", passwordErr: "" })
@@ -76,36 +80,44 @@ function Login() {
     }
   }
   return (
-    <Form onSubmit={submitHandler} className='container p-5 width'>
+
+    <Form onSubmit={submitHandler} className='container p-5 widthLogin rounded-4'>
       <Form.Group className="mb-3" controlId="formBasicLoginEmail">
-        <Form.Label>Email address</Form.Label>
+        <div className='d-flex justify-content-between'>
+        <Form.Label className='label'>Email address</Form.Label>
         <Form.Control
-          className={userDataErr.emailErr ? "border-danger" : ""}
+          className={`d-inline w-75 ${userDataErr.emailErr ? "border-danger" : ""}`}
           type="email"
           placeholder="Enter email"
           onChange={(e) => tracker(e)}
           onBlur={(e) => tracker(e)}
           name="email"
         />
+        </div>
         <div className='text-danger'>
           {userDataErr.emailErr}
         </div>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicLoginPassword">
+      <div className='d-flex justify-content-between'>
         <Form.Label>Password</Form.Label>
-        <Form.Control
-          type={passwordVisablity ? "text" : "password"}
-          placeholder="Password"
-          className={userDataErr.passwordErr ? "border-danger" : ""}
-          onChange={(e) => tracker(e)}
-          onBlur={(e) => tracker(e)}
-          name="password"
-        />
-        <div className='text-danger'>
+        <div className='d-flex position-relative  w-75 '>
+          <Form.Control
+            type={passwordVisablity ? "text" : "password"}
+            placeholder="Password"
+            className={`  ${userDataErr.passwordErr ? "border-danger" : ""}`}
+            onChange={(e) => tracker(e)}
+            onBlur={(e) => tracker(e)}
+            name="password"
+
+          />
+          <button type="button" onClick={togglePassword} className='passwordEye btn btn-danger d-inline'>{passwordVisablity?<FontAwesomeIcon icon={faEye} />:<FontAwesomeIcon icon={faEyeSlash} />}</button>
+        </div>
+        </div>
+        <div className='text-danger '>
           {userDataErr.passwordErr}
         </div>
-        <button type="button" onClick={togglePassword} className='btn btn-danger'>show password</button>
       </Form.Group>
       <Button className="btn-danger" variant="primary" type="submit" disabled={userDataErr.emailErr || userDataErr.passwordErr || !userData.email || !userData.password}>
         Submit

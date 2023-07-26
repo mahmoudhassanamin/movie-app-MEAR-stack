@@ -29,7 +29,7 @@ function Movie() {
           <p className='text-center bg-success fs-5 p-2 rounded-2 h-25 w-50'>Release Date : {movieData.release_date}</p>
           <div className='d-flex flex-column align-items-center' >
           <p className='w-25 text-center bg-warning fs-5 p-2  rounded-2'>{movieData.vote_average} <img src={starImg} className='bg-black rounded-5' width={"15%"}/></p>
-          <p className='text-light'>total votes : {movieData.vote_count} </p>
+          <p className='text-dark'>total votes : {movieData.vote_count} </p>
           </div>
           <img width="10%" height="10%" src={movieData.adult?plus18:notPlus18}/>
         </div>

@@ -1,4 +1,13 @@
-.width{
-    width: 50% !important;
-    color: white;
+.widthLogin{
+    width: 40vw !important;
+    color: rgb(0, 0, 0) !important;
+    background-color: rgba(99, 99, 99, 0.192);
+    margin-top: 5vw;
+    font-size: 1.3vw;
+}
+
+.passwordEye{
+    position: absolute;
+    width: fit-content;
+    right: 0;
 }

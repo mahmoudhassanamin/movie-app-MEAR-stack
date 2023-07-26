@@ -76,7 +76,7 @@ function Movies() {
     return (
         <>
         <div>
-        <Form className='d-flex width m-3' onSubmit={getMoviesByName}>
+        <Form className='d-flex w-50 m-3' onSubmit={getMoviesByName}>
             <Form.Control type="text" placeholder="Search" style={{width:"50%",margin:"0 3%"}} onChange={(e)=>setSearchMovie(e.target.value)}/>
             <Button className="btn-danger" variant="primary" type="submit"  >
                 Search

@@ -38,8 +38,9 @@ const register = async (req, res, next) => {
         req.body=user
         next()
     } catch (err) {
-        console.log(err);
+        console.log(err)
         next(err)
+
     }
 }
 

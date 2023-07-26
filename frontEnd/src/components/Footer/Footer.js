@@ -14,7 +14,7 @@ function Footer() {
     <section className="mb-4">
     {/* className="text-center p-3" style={{backgroundColor: "rgba(0, 0, 0, 0.2)"}} */}
   <p style={{display:"inline"}} >
-    © 2020 Copyright :
+    © 2023 Copyright :
     <a className="text-white m-3" href="https://www.linkedin.com/in/mahmoud-hassan123/" target="_blank">Mahmoud hassan</a>
   </p>
       <p style={{display:"inline"}}>Contact Me : </p>
